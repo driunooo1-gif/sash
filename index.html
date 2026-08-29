@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Ganda ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    .letter {
+      width: 100%;
+      max-width: 650px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    .message {
+      text-align: left;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .message p {
+      margin-bottom: 20px;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 25px;
+      font-style: italic;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 13px 25px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #ff6f91;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .transition {
+      display: none;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .transition h2 {
+      font-size: 40px;
+      animation: fade 2s ease;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LETTER -->
+  <div class="container" id="letterPage">
+    <div class="letter">
+
+      <h1>For Ganda ❤️</h1>
+
+      <div class="message">
+
+        <p>
+          Ganda,
+        </p>
+
+        <p>
+          I just want to say that I'm really sorry. I know that sometimes
+          saying “sorry” isn't enough to make things right, but I hope you
+          can feel how genuine I am when I say it. I'm sorry for the things
+          I did, for the moments I made you feel hurt, and for the times
+          I failed to understand you the way I should have.
+        </p>
+
+        <p>
+          I don't want to make excuses for my mistakes. I know I have things
+          I need to learn and improve, and I'm willing to do that. I want to
+          become a better person, not just by saying it, but by showing it
+          through my actions.
+        </p>
+
+        <p>
+          You became someone very special to me, and I don't want you to ever
+          think that I don't appreciate you.
+        </p>
+
+        <p>
+          I'm not asking you to forget everything or instantly make everything
+          okay. I just want you to know that I'm sorry, that I care about you,
+          and that my feelings for you are real.
+        </p>
+
+        <p>
+          I'm sorry, Ganda. I love you.
+        </p>
+
+        <p class="signature">
+          — D
+        </p>
+
+      </div>
+
+      <button onclick="startTransitions()">
+        Continue ❤️
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- TRANSITIONS -->
+  <div class="transition" id="transitionPage">
+    <h2 id="transitionText"></h2>
+  </div>
+
+
+  <script>
+
+    const messages = [
+      "Ang ganda ganda mo I love you ❤️",
+      "Ang ganda ganda mo I love you ❤️",
+      "Ang ganda ganda mo I love you ❤️",
+      "Ang ganda ganda mo I love you ❤️",
+      "I love you infinity & beyond 😘❤️"
+    ];
+
+    let current = 0;
+
+    function startTransitions() {
+
+      document.getElementById("letterPage").style.display = "none";
+      document.getElementById("transitionPage").style.display = "flex";
+
+      showNextMessage();
+    }
+
+    function showNextMessage() {
+
+      const text = document.getElementById("transitionText");
+
+      text.style.animation = "none";
+      void text.offsetWidth;
+      text.style.animation = "fade 2s ease";
+
+      text.innerHTML = messages[current];
+
+      current++;
+
+      if (current < messages.length) {
+        setTimeout(showNextMessage, 3000);
+      }
+    }
+
+
+    // Floating hearts
+    setInterval(() => {
+
+      const heart = document.createElement("div");
+
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration =
+        (Math.random() * 3 + 3) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+
+    }, 500);
+
+  </script>
+
+</body>
+</html>
